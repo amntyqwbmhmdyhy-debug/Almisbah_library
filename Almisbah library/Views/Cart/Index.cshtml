@@ -1,0 +1,65 @@
+﻿@model List<Almisbah_library.Models.Book>
+@{
+    ViewBag.Title = "سلة المشتريات";
+}
+<style>
+    .cart-table th {
+        background: #2c3e50;
+        color: white;
+    }
+
+    .btn-checkout {
+        background: #27ae60;
+        color: white;
+        padding: 12px 30px;
+        font-size: 18px;
+        border- radius:8px;
+    }
+
+        .btn-checkout:hover {
+            background: #219150;
+            color: white;
+        }
+
+    .btn-remove {
+        background: #e74c3c;
+        color: white;
+    }
+</style>
+
+<h2>🛒 سلة المشتريات (@Model.Count كتاب)</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">السلة فاضية 😔 <a href="/Store">ارجع للمتجر واختار كتب</a></div>
+}
+else
+{
+    <table class="table table-bordered table-hover cart-table">
+
+        <tr>
+            <th>الكتاب</th>
+            <th>السعر</th>
+            <th>تحكم</th>
+        </tr>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td><b>@b.Title</b><br><small>@b.Authur</small></td>
+                <td>@b.Price جنيه</td>
+                <td><a href="/Cart/Remove/@b.Id" class="btn btn-remove btn-sm">🗑️ حذف</a></td>
+            </tr>
+        }
+    </table>
+
+    <h3 style="margin:20px 0">
+        الإجمالي: <span style="color:#27ae60">
+            @Model.Sum(x => x.
+
+Price) جنيه
+    </span>
+</h3>
+
+<a href="/Cart/Checkout" class="btn btn-success btn-lg">✅ إتمام الشراء</a>
+    <a href="/Store" class="btn btn-default" style="padding:12px 20px;margin-right:10px">↩️ متابعة التسوق</a>
+}

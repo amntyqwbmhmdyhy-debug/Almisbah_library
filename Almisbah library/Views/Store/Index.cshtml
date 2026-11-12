@@ -1,0 +1,30 @@
+﻿@model List<Almisbah_library.Models.Book>
+@{
+    ViewBag.Title = "المتجر";
+}
+
+<a href="/Book" class="btn btn-warning" style="margin:15px 0; display:inline-block">⚙️ دخول لوحة التحكم لإضافة كتاب</a>
+
+<h2>📚 متجر الكتب</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div style="text-align:center; padding:40px">
+        <p>لا توجد كتب حالياً</p>
+        <a href="/Book/Create" class="btn btn-success btn-lg">➕ إضافة كتب من لوحة التحكم</a>
+    </div>
+}
+else
+{
+    <div class="row">
+        @foreach (var book in Model)
+        {
+            <div class="col-md-4" style="border:1px solid #ddd; padding:15px; margin:10px; border-radius:8px">
+                <h4>@book.Title</h4>
+                <p>السعر: @book.Price جنيه</p>
+                <a href="/Cart/AddToCart/@book.Id"
+                   class="btn btn-primary">أضف للسلة</a>
+            </div>
+        }
+    </div>
+}

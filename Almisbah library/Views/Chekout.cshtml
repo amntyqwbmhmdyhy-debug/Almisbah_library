@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "إتمام الشراء";
+
+}
+<div style="text-align:center; margin-top:80px">
+    <h1 style="color:#27ae60; font-size:40px">✅ تم إتمام الشراء بنجاح!</h1>
+    <p style="font-size:22px; margin:20px">شكراً لزيارتكم مكتبة المصباح - عطبرة</p>
+    @if (Session["Total"] != null)
+    {
+        <h3>المبلغ المدفوع: @Session["Total"] جنيه</h3>
+    }
+    <br /><br />
+    <a href="/Store" class="btn btn-success btn-lg">📚 الرجوع للمتجر</a>
+    <a href="/Book" class="btn btn-warning btn-lg">⚙️ لوحة التحكم</a>
+</div>

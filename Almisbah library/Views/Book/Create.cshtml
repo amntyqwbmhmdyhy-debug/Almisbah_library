@@ -1,0 +1,15 @@
+﻿@model Almisbah_library.Models.Book
+@{
+    ViewBag.Title = "إضافة كتاب";
+}
+<h2>إضافة كتاب جديد</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">اسم الكتاب @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })</div>
+    <div class="form-group">المؤلف @Html.TextBoxFor(m => m.Authur, new { @class = "form-control" })</div>
+    <div class="form-group">السعر @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })</div>
+    <div class="form-group">الكمية @Html.TextBoxFor(m => m.Stock, new { @class = "form-control" })</div>
+    <button type="submit" class="btn btn-success">حفظ</button>
+}

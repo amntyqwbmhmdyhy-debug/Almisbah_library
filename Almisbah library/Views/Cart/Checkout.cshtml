@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="text-align:center; margin-top:100px">
+    <h1 style="color:green; font-size:45px">✅ تم إتمام الشراء بنجاح</h1>
+    <h3>شكراً لكم - مكتبة المصباح عطبرة</h3>
+    <h2>المبلغ: @Session["Total"] جنيه</h2>
+    <br />
+    <a href="/Store" class="btn btn-success btn-lg">📚 الرجوع للمتجر</a>
+    <a href="/Book" class="btn btn-warning btn-lg">⚙️ لوحة التحكم</a>
+</div>

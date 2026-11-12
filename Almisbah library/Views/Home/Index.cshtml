@@ -1,0 +1,28 @@
+﻿@{ 
+    ViewBag.Title = "مكتبة المصباح";
+}
+
+
+<div class="jumbotron" style="text-align:center">
+    <h1>📚 مرحبا بكم في مكتبة المصباح</h1>
+    <p>أكبر متجر كتب عربية وبرمجة ودينية</p>
+    <a href="/Store" class="btn btn-primary btn-lg">تصفح المتجر</a>
+</div>
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <img src="@book.ImageUrl" style="height:200px" />
+                <div class="caption">
+                    <h4>@book.Title</h4>
+                    <p>@book.Price جنيه</p>
+                    <a href="/Store/Details/@book.Id" class="btn btn-
+
+success">التفاصيل</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

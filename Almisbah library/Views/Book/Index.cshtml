@@ -1,0 +1,61 @@
+﻿@model List<Almisbah_library.Models.Book>
+@{
+    ViewBag.Title = "لوحة التحكم";
+}
+<style>
+    .btn-edit {
+        background: #f39c12;
+        color: white;
+        borde r-radius:6px;
+    }
+
+    .btn-del {
+        background: #e74c3c;
+        color: white;
+        border-radius: 6px;
+    }
+
+    .btn-add {
+        background: #3498db;
+        color: white;
+    }
+
+    .btn-store {
+        background: #27ae60;
+        color: white;
+    }
+</style>
+
+<h2>لوحة التحكم - كل الكتب (@Model.Count)</h2>
+<p>
+    <a href="/Book/Create" class="btn btn-add">+ إضافة كتاب جديد</a>
+    <a href="/Store" class="btn btn-store">عرض المتجر</a>
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>اسم الكتاب</th>
+        <th>المؤلف</th>
+        <th>السعر</th>
+        <th>
+            الكمية</
+
+            th>
+        <th>تحكم</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Title</td>
+            <td>@item.Authur</td>
+            <td>@item.Price</td>
+            <td>@item.Stock</td>
+            <td>
+                <a href="/Book/Edit/@item.Id" class="btn btn-edit btn-xs">✏️ تعديل</a>
+                <a href="/Book/Delete/@item.Id" class="btn btn-del btn-xs" onclick="return confirm('متأكدة تحذفي @item.Title ؟')">🗑️ حذف</a>
+            </td>
+        </tr>
+    }
+</table>

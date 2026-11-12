@@ -1,0 +1,16 @@
+﻿@model Almisbah_library.Models.Book
+<h2>تعديل كتاب</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Id)
+    <div>اسم الكتاب: @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })</div>
+    <div>المؤلف: @Html.TextBoxFor(m => m.Authur, new { @class = "form-control" })</div>
+    <div>السعر: @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })</div>
+    <div>الكمية: @Html.TextBoxFor(m => m.Stock, new { @class = "form-control" })</div>
+    <br />
+    <button type="submit" class="btn btn-
+
+success">
+        حفظ التعديل
+    </button>
+}
